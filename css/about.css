@@ -1,0 +1,105 @@
+body {
+    background-color: #faebd7;
+}
+
+h1 {
+    text-align: center;
+    margin: 1.5em 0;
+}
+
+/*プロフィール*/
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.profile-card {
+    animation: slideUp 1s ease-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profile-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    background-color:#fffafa
+}
+
+
+h3 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #000;
+    background: #f5deb3;
+    border-left: solid 10px #ffc06e;
+}
+
+
+
+/* Text styles within the profile card */
+.profile-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.profile-section {
+    margin-bottom: 15px;
+}
+
+.profile-section h3 {
+    margin: 0;
+}
+
+.profile-section p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    color: #333;
+}
+
+
+
+
+
+
+/*メニューバー*/
+.footer {
+    background-color: #ffe4c4; /* 背景色 */
+    padding: 20px; /* 内側の余白 */
+    text-align: center; /* テキストの中央寄せ */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .menu {
+    display: flex; /* フレックスボックスレイアウト */
+    justify-content: center; /* 子要素の中央寄せ */
+    gap: 15px; /* 子要素間のスペース */
+}
+
+/* メニューリンクのスタイル */
+.footer .menu a {
+    text-decoration: none; /* テキスト装飾の削除 */
+    color: #333; /* テキストの色 */
+    font-weight: bold; /* 太字 */
+    padding: 10px 15px; /* 内側の余白 */
+    border-radius: 5px; /* 角丸 */
+    transition: background-color 0.3s; /* 背景色のトランジション */
+}
