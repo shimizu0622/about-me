@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+.slider-container {
+    width: 200px;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    animation: slide 15s linear infinite;
+}
+
+.slider img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateY(0);
+    }
+    33.33% {
+        transform: translateY(-100%);
+    }
+    66.66% {
+        transform: translateY(-200%);
+    }
+    100% {
+        transform: translateY(-300%);
+    }
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+/* オプション：左右で異なるアニメーション速度を設定する場合 */
+.left .slider {
+    animation-duration: 15s;
+}
+
+.right .slider {
+    animation-duration: 12s;
+}

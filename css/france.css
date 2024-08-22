@@ -1,0 +1,77 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #002395; /* フランスの青 */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 5px solid #ED2939; /* フランスの赤 */
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.heritage {
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.6s forwards;
+}
+
+.heritage:nth-child(even) {
+    animation-name: slideInLeft;
+}
+
+.heritage:nth-child(odd) {
+    animation-name: slideInRight;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.heritage img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.heritage p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #555;
+}

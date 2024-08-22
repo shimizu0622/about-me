@@ -1,0 +1,140 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #faebd7;
+    display: flex;
+    overflow-x: hidden;
+}
+
+.content {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ヘッダーのスタイル */
+.header {
+    background-color:#ffe4c4;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* メニューのスタイル */
+.header .menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* メニューリンクのスタイル */
+.header .menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    margin: 5em;
+}
+
+/* アニメーションの定義 */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 全体のコンテナを中央に配置 */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: auto;
+    height: 100vh;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* メインコンテンツのスタイル */
+.main {
+    display: flex;
+    gap: 20px;
+}
+
+/* 各リンクのスタイル */
+.link a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+.slider-container {
+    width: 150px;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: slide 20s linear infinite;
+}
+
+.slider img {
+    width: 100%;
+    height: 100vh; /* 画像の高さを画面の高さに合わせる */
+    object-fit: cover; /* 画像のアスペクト比を保持しつつ、コンテナを埋める */
+}
+
+@keyframes slide {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* スライダーの連続的なループを作成するために、疑似要素を使用 */
+.slider::before,
+.slider::after {
+    content: "";
+    display: block;
+    height: 100vh;
+}
+
+.slider::before {
+    margin-top: -100vh;
+}
