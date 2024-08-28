@@ -1,105 +1,138 @@
 body {
-    background-color: #faebd7;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: linear-gradient(-45deg, #faebd7, #ffe4b5, #ffdab9, #ffefd5);
+    background-size: 400% 400%;
+    animation: gradientBG 6s ease infinite, fadeIn 1s ease-out;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 h1 {
     text-align: center;
-    margin: 1.5em 0;
+    margin: 1em 0;
+    font-size: 2.5em;
+    color: #333;
+    animation: slideDown 1s ease-out;
 }
 
-/*プロフィール*/
-@keyframes slideUp {
-    0% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.profile-card {
-    animation: slideUp 1s ease-out;
-    opacity: 1;
-    transform: translateY(0);
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .profile-card {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 350px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
-    background-color:#fffafa
+    background-color: rgba(255, 250, 250, 0.8);
+    animation: fadeIn 1s ease-out 0.5s both, slideUp 1s ease-out 0.5s both;
 }
 
-
-h3 {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    color: #000;
-    background: #f5deb3;
-    border-left: solid 10px #ffc06e;
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-
-
-/* Text styles within the profile card */
 .profile-card h2 {
-    font-size: 24px;
+    font-size: 1.8em;
     margin-bottom: 10px;
-}
-
-.profile-card h3 {
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: #555;
+    color: #444;
+    animation: fadeIn 0.5s ease-out 1s both;
 }
 
 .profile-section {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.profile-section:nth-child(2) { animation-delay: 1.2s; }
+.profile-section:nth-child(3) { animation-delay: 1.4s; }
+.profile-section:nth-child(4) { animation-delay: 1.6s; }
+.profile-section:nth-child(5) { animation-delay: 1.8s; }
+
+@keyframes fadeInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .profile-section h3 {
-    margin: 0;
+    padding: 0.4em 0.8em;
+    margin: 0.8em 0;
+    font-size: 1em;
+    color: #000;
+    background: rgba(245, 222, 179, 0.7);
+    border-left: solid 8px #ffc06e;
+    transition: all 0.3s ease;
+}
+
+.profile-section h3:hover {
+    transform: translateX(5px);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .profile-section p {
     margin: 5px 0 0;
-    font-size: 16px;
+    font-size: 0.9em;
     color: #333;
+    transition: all 0.3s ease;
 }
 
+.profile-section:hover p {
+    transform: scale(1.03);
+}
 
-
-
-
-
-/*メニューバー*/
 .footer {
-    background-color: #ffe4c4; /* 背景色 */
-    padding: 20px; /* 内側の余白 */
-    text-align: center; /* テキストの中央寄せ */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
+    background-color: rgba(255, 228, 196, 0.8);
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
+    animation: slideUp 1s ease-out;
 }
 
 .footer .menu {
-    display: flex; /* フレックスボックスレイアウト */
-    justify-content: center; /* 子要素の中央寄せ */
-    gap: 15px; /* 子要素間のスペース */
+    display: flex;
+    justify-content: center;
+    gap: 12px;
 }
 
-/* メニューリンクのスタイル */
 .footer .menu a {
-    text-decoration: none; /* テキスト装飾の削除 */
-    color: #333; /* テキストの色 */
-    font-weight: bold; /* 太字 */
-    padding: 10px 15px; /* 内側の余白 */
-    border-radius: 5px; /* 角丸 */
-    transition: background-color 0.3s; /* 背景色のトランジション */
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.footer .menu a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
 }

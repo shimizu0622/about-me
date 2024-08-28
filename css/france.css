@@ -1,77 +1,113 @@
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    background-color: #e6f2ff; /* 薄い青色の背景を追加 */
 }
 
 header {
-    background-color: #002395; /* フランスの青 */
-    color: #fff;
-    padding: 1rem 0;
+    background-color: #003366;
+    color: white;
     text-align: center;
-    border-bottom: 5px solid #ED2939; /* フランスの赤 */
+    padding: 20px 0;
 }
 
 h1 {
     margin: 0;
-    font-size: 2.5rem;
+}
+
+.heritage-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
 }
 
 .heritage {
-    margin: 2rem auto;
-    padding: 1rem;
-    max-width: 800px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideIn 0.6s forwards;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    width: calc(33.33% - 40px);
+    transition: transform 0.3s ease;
 }
 
-.heritage:nth-child(even) {
-    animation-name: slideInLeft;
+.heritage:hover {
+    transform: translateY(-10px);
 }
 
-.heritage:nth-child(odd) {
-    animation-name: slideInRight;
-}
-
-@keyframes slideInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.image-container {
+    overflow: hidden;
+    border-radius: 5px;
+    height: 200px;
 }
 
 .heritage img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.heritage p {
-    font-size: 1.2rem;
-    margin: 0;
-    color: #555;
+.heritage:hover img {
+    transform: scale(1.1);
+}
+
+h2 {
+    color: #003366;
+}
+
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #ffd700;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heritage {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.heritage:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.heritage:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.heritage:nth-child(3) {
+    animation-delay: 0.6s;
 }
