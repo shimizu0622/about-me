@@ -83,18 +83,6 @@ h2 {
     animation-delay: 0.6s;
 }
 
-@media screen and (max-width: 768px) {
-    .heritage {
-        width: calc(50% - 40px);
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .heritage {
-        width: calc(100% - 40px);
-    }
-}
-
 footer {
     background-color: #003366;
     color: white;
@@ -119,4 +107,54 @@ footer {
 
 .menu a:hover {
     color: #ffd700;
+}
+
+/* タブレット向けのスタイル */
+@media screen and (max-width: 768px) {
+    .heritage {
+        width: calc(50% - 40px);
+    }
+    
+    .image-container {
+        height: 180px;
+    }
+}
+
+/* スマートフォン向けのスタイル */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 10px 0;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .heritage-container {
+        padding: 10px;
+    }
+
+    .heritage {
+        width: calc(100% - 20px);
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .image-container {
+        height: 150px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu a {
+        margin: 5px 0;
+    }
+
+    footer {
+        position: static;
+        padding: 10px 0;
+    }
 }

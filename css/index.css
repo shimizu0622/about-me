@@ -22,6 +22,7 @@ body, html {
         background-position: 0% 50%;
     }
 }
+
 .header {
     position: fixed;
     top: 0;
@@ -35,17 +36,20 @@ body, html {
     justify-content: space-between;
     align-items: center;
 }
+
 .site-title {
     color: #fff;
     font-size: 1.2em;
     font-weight: bold;
     flex: 1;
 }
+
 .menu {
     display: flex;
     justify-content: center;
     flex: 2;
 }
+
 .menu a {
     margin: 0 15px;
     color: #fff;
@@ -53,26 +57,31 @@ body, html {
     font-weight: bold;
     transition: all 0.3s ease;
 }
+
 .menu a:hover {
     color: #f3ec78;
     transform: scale(1.1);
 }
+
 .spacer {
     flex: 1;
 }
+
 .welcome {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 60px; /* ヘッダーの高さ分の余白を追加 */
+    padding-top: 60px;
 }
+
 .intro-text {
     font-size: 5em;
     animation: fadeInScale 2s ease-out;
-    margin-bottom: 2rem; /* 「ようこそ」テキストの下に余白を追加 */
+    margin-bottom: 2rem;
 }
+
 .container {
     width: 100%;
     max-width: 800px;
@@ -80,26 +89,31 @@ body, html {
     padding: 20px;
     background: rgba(255, 255, 255, 0.15);
 }
+
 .main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
+
 .link {
     background: rgba(255, 255, 255, 0.25);
     padding: 20px;
     border-radius: 10px;
     transition: all 0.3s ease;
 }
+
 .link:hover {
     background: rgba(255, 255, 255, 0.45);
     transform: translateY(-5px);
 }
+
 .link a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2em;
 }
+
 @keyframes fadeInScale {
     0% {
         opacity: 0;
@@ -110,23 +124,29 @@ body, html {
         transform: scale(1);
     }
 }
+
 .fade-in {
     animation: fadeIn 1s ease-out forwards;
 }
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
 .hidden {
     opacity: 0;
 }
+
 .floating {
     animation: floating 3s ease-in-out infinite;
 }
+
 @keyframes floating {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
 }
+
 .bg-animation {
     position: fixed;
     top: 0;
@@ -136,6 +156,7 @@ body, html {
     pointer-events: none;
     z-index: -1;
 }
+
 .bg-animation div {
     position: absolute;
     display: block;
@@ -145,6 +166,7 @@ body, html {
     animation: animate 25s linear infinite;
     bottom: -150px;
 }
+
 @keyframes animate {
     0% {
         transform: translateY(0) rotate(0deg);
@@ -155,5 +177,57 @@ body, html {
         transform: translateY(-1000px) rotate(720deg);
         opacity: 0;
         border-radius: 50%;
+    }
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .site-title {
+        margin-bottom: 10px;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu a {
+        margin: 5px 0;
+    }
+
+    .intro-text {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+    .link {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .intro-text {
+        font-size: 2em;
+    }
+
+    .container {
+        margin: 1rem auto;
+    }
+
+    .link a {
+        font-size: 1em;
     }
 }
