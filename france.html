@@ -14,8 +14,8 @@
         <section class="heritage">
             <h2>エッフェル塔</h2>
             <div class="image-container">
-                <a href="https://www.toureiffel.paris/jp">
-                    <img src="img/eiffeltower.jpg" alt="エッフェル塔">
+                <a href="https://www.toureiffel.paris/jp" target="_blank">
+                    <img src="img/eiffeltower.jpg" alt="エッフェル塔" class="heritage-image">
                 </a>
             </div>
             <p>パリの象徴的なランドマークで、1889年に建設されました。フランスの技術力を象徴する建物です。</p>
@@ -23,8 +23,8 @@
         <section class="heritage">
             <h2>モン・サン・ミシェル</h2>
             <div class="image-container">
-                <a href="https://www.tiqets.com/ja/mont-saint-michel-abbey-tickets-l145867/?utm_account=154002310&utm_source=bing&utm_medium=cpc&utm_campaign=710425585&utm_content=1250146036770727&msclkid=e11d88d88c9d1fa6578bee17a62f1717&utm_term=mont+saint+michel">
-                    <img src="img/MontSaintMichel.jpg" alt="モン・サン・ミシェル">
+                <a href="https://www.tiqets.com/ja/mont-saint-michel-abbey-tickets-l145867/" target="_blank">
+                    <img src="img/MontSaintMichel.jpg" alt="モン・サン・ミシェル" class="heritage-image">
                 </a>
             </div>
             <p>ノルマンディー地方にある美しい島の修道院で、潮の満ち引きによって島になることが知られています。</p>
@@ -32,8 +32,8 @@
         <section class="heritage">
             <h2>ヴェルサイユ宮殿</h2>
             <div class="image-container">
-                <a href="https://www.chateauversailles.fr/">
-                    <img src="img/versailles.jpg" alt="ヴェルサイユ宮殿">
+                <a href="https://www.chateauversailles.fr/" target="_blank">
+                    <img src="img/versailles.jpg" alt="ヴェルサイユ宮殿" class="heritage-image">
                 </a>
             </div>
             <p>ルイ14世が建設した豪華な宮殿で、フランスの絶対君主制を象徴する建築です。</p>
@@ -49,5 +49,69 @@
             <a href="./contact.html">CONTACT</a>
         </nav>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // ヘッダーのアニメーション
+            gsap.from("header", {
+                duration: 1,
+                y: -50,
+                opacity: 0,
+                ease: "power3.out"
+            });
+
+            // 各セクションのアニメーション
+            gsap.utils.toArray(".heritage").forEach((section, i) => {
+                gsap.from(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%",
+                    },
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: "power3.out",
+                    delay: i * 0.2
+                });
+            });
+
+            // 画像のホバーエフェクト
+            const images = document.querySelectorAll('.heritage-image');
+            images.forEach(img => {
+                img.addEventListener('mouseenter', () => {
+                    gsap.to(img, {duration: 0.3, scale: 1.1, boxShadow: "0 0 20px rgba(0,0,0,0.3)"});
+                });
+                img.addEventListener('mouseleave', () => {
+                    gsap.to(img, {duration: 0.3, scale: 1, boxShadow: "none"});
+                });
+            });
+
+            // スムーズスクロール
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // フッターのフェードイン
+            gsap.from("footer", {
+                scrollTrigger: {
+                    trigger: "footer",
+                    start: "top bottom",
+                },
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power3.out"
+            });
+        });
+    </script>
 </body>
 </html>

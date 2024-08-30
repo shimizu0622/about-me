@@ -14,8 +14,8 @@
         <section class="heritage">
             <h2>ハワイ火山国立公園</h2>
             <div class="image-container">
-                <a href="https://www.nps.gov/havo/index.htm">
-                    <img src="img/kazanpark.jpg" alt="ハワイ火山国立公園">
+                <a href="https://www.nps.gov/havo/index.htm" target="_blank">
+                    <img src="img/kazanpark.jpg" alt="ハワイ火山国立公園" class="heritage-image">
                 </a>
             </div>
             <p>キラウエア火山とマウナ・ロア火山を含む公園で、火山の活動や形成過程を観察できる貴重な場所です。</p>
@@ -23,8 +23,8 @@
         <section class="heritage">
             <h2>パールハーバー</h2>
             <div class="image-container">
-                <a href="https://pearlharbortour.jp/">
-                    <img src="img/parlha-ba-.jpg" alt="パールハーバー">
+                <a href="https://pearlharbortour.jp/" target="_blank">
+                    <img src="img/parlha-ba-.jpg" alt="パールハーバー" class="heritage-image">
                 </a>
             </div>
             <p>第二次世界大戦の歴史的な戦場であり、現在は記念館として多くの人々が訪れています。</p>
@@ -32,8 +32,8 @@
         <section class="heritage">
             <h2>ハレアカラ国立公園</h2>
             <div class="image-container">
-                <a href="https://www.nps.gov/hale/index.htm">
-                    <img src="img/haleakara.jpg" alt="ハレアカラ国立公園">
+                <a href="https://www.nps.gov/hale/index.htm" target="_blank">
+                    <img src="img/haleakara.jpg" alt="ハレアカラ国立公園" class="heritage-image">
                 </a>
             </div>
             <p>マウイ島にある広大な国立公園で、絶景のサンライズや珍しい生態系が楽しめます。</p>
@@ -49,5 +49,59 @@
             <a href="./contact.html">CONTACT</a>
         </nav>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // ヘッダーのアニメーション
+            gsap.from("header", {
+                duration: 1,
+                y: -50,
+                opacity: 0,
+                ease: "power3.out"
+            });
+
+            // 各セクションのアニメーション
+            gsap.utils.toArray(".heritage").forEach((section, i) => {
+                gsap.from(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%",
+                    },
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: "power3.out",
+                    delay: i * 0.2
+                });
+            });
+
+            // 画像のホバーエフェクト
+            const images = document.querySelectorAll('.heritage-image');
+            images.forEach(img => {
+                img.addEventListener('mouseenter', () => {
+                    gsap.to(img, {duration: 0.3, scale: 1.1, boxShadow: "0 0 20px rgba(0,0,0,0.3)"});
+                });
+                img.addEventListener('mouseleave', () => {
+                    gsap.to(img, {duration: 0.3, scale: 1, boxShadow: "none"});
+                });
+            });
+
+            // フッターのフェードイン
+            gsap.from("footer", {
+                scrollTrigger: {
+                    trigger: "footer",
+                    start: "top bottom",
+                },
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: "power3.out"
+            });
+        });
+    </script>
 </body>
 </html>
