@@ -57,17 +57,6 @@
         <div style="left:95%;animation-delay:12s;"></div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            setTimeout(() => {
-                document.querySelector('.container').classList.remove('hidden');
-                document.querySelectorAll('.link').forEach((link, index) => {
-                    setTimeout(() => {
-                        link.classList.add('visible');
-                    }, index * 200);
-                });
-            }, 2000);
-        });
-    </script>
+    <script src="js/index.js"></script>
 </body>
 </html>
